@@ -1,0 +1,5 @@
+#!/bin/sh
+exec 2>&1
+mkdir -m 0750 /run/nordvpn
+chown root:nordvpn /run/nordvpn
+exec chpst -u root:nordvpn /usr/bin/nordvpnd
