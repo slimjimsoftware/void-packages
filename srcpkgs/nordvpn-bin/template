@@ -1,0 +1,41 @@
+# Template file for 'nordvpn-bin'
+pkgname=nordvpn-bin
+version=3.18.1
+revision=1
+archs="x86_64 aarch64"
+build_style=fetch
+short_desc="NordVPN CLI tool for Linux"
+makedepends="tar gzip"
+maintainer="Orphaned <orphan@voidlinux.org>"
+license="custom"
+homepage="https://nordvpn.com"
+nopie=true
+system_groups="nordvpn"
+repository=nonfree
+
+case "$XBPS_TARGET_MACHINE" in
+	x86_64)
+		_deb="nordvpn_${version//v/-}_amd64.deb"
+		distfiles="https://repo.nordvpn.com/deb/nordvpn/debian/pool/main/nordvpn_${version//v/-}_amd64.deb"
+		checksum=107b634d4147ba498313f8f1a64f01a914a521a755d63cffd43bc31bcc1164fd
+		;;
+	aarch64)
+		_deb="nordvpn_${version//v/-}_arm64.deb"
+		distfiles="https://repo.nordvpn.com/deb/nordvpn/debian/pool/main/nordvpn_${version//v/-}_arm64.deb"
+		checksum=b5f408cc100b7e26b7e67ad5b6cc84a9e128005a48add7ac89bb4b034917a202
+		;;
+esac
+
+do_install() {
+
+	ar p "${_deb}" data.tar.gz > data.tar.gz
+	tar -C "${DESTDIR}" -xvf data.tar.gz
+
+	vbin "${DESTDIR}/usr/sbin/nordvpnd"
+
+	rm -r "${DESTDIR}/usr/sbin"
+	rm -r "${DESTDIR}/usr/lib/systemd/"
+	rm -r "${DESTDIR}/etc/init.d"
+
+	vsv nordvpn
+}
