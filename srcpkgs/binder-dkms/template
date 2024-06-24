@@ -1,0 +1,22 @@
+# Template file for 'binder-dkms'
+pkgname=binder-dkms
+version=6.8.1
+revision=1
+_commit=44e5ba79f515b3cd22d96b4e3ab0f74d5361eb79
+archs="i686* x86_64* aarch64"
+create_wrksrc=yes
+depends="dkms"
+short_desc="Android kernel driver fork in DKMS format, binder only"
+maintainer="Orphaned <orphan@voidlinux.org>"
+license="GPL3"
+homepage="http://github.com/choff/anbos-modules"
+triggers="dkms"
+dkms_modules="binder-linux ${version}"
+distfiles="https://github.com/choff/anbox-modules/archive/${_commit}.tar.gz"
+checksum=8cd9b4f010e5e3d1374f6031c8f679a857f4b2db72158dc6e6267fcbbb5dd159
+
+do_install() {
+	# dkms pkg
+	vmkdir usr/src/binder-linux-${version}
+	vcopy "anbox-modules-${_commit}/binder/*" usr/src/binder-linux-${version}
+}
