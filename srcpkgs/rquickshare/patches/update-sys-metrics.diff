@@ -1,0 +1,11 @@
+--- a/core_lib/Cargo.toml	2024-06-16 09:26:09.617418705 +1200
++++ b/core_lib/Cargo.toml	2024-06-16 09:26:21.801458660 +1200
+@@ -34,7 +34,7 @@
+ rand = "0.8"
+ serde = { version = "1.0", features = ["derive"] }
+ sha2 = "0.10"
+-sys_metrics = "0.2"
++sys_metrics = "0.2.7"
+ tokio = { version = "1.25", features = ["macros", "rt", "rt-multi-thread", "net", "sync", "time", "io-util", "signal"] }
+ tokio-util = { version = "0.7", features = ["rt"] }
+ tracing-subscriber = { version = "0.3", features = ["env-filter"] }
