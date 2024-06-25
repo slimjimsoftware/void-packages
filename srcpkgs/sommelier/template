@@ -1,0 +1,13 @@
+# Template file for 'sommelier'
+pkgname=sommelier
+version=0.12
+revision=1
+build_style=meson
+configure_args="-Dxwayland_path=/usr/bin/Xwayland -Dxwayland_gl_driver_path=/usr/lib64/dri -Dwith_tests=false"
+hostmakedepends="wayland-devel pkg-config libgbm-devel libdrm-devel pixman-devel libxcb-devel libxkbcommon-devel python3-Jinja2 gtest-devel"
+short_desc="Nested Wayland compositor with support for X11 forwarding"
+maintainer="Orphaned <orphan@voidlinux.org>"
+license="unknown"
+homepage="https://chromium.googlesource.com/chromiumos/platform2/+/master/vm_tools/sommelier/"
+distfiles="https://copr-dist-git.fedorainfracloud.org/repo/pkgs/slp/asahi-krun/sommelier/sommelier-0.12^git31e06b16.tgz/md5/4dde7d33482436870c6d3cf816bb3d51/sommelier-0.12^git31e06b16.tgz"
+checksum=e15aa659de145776d92621841ed2877cbd5dedfae1a489eb77b12a1f06c8f8f4
