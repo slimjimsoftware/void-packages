@@ -1,0 +1,14 @@
+# Template file for 'libkrunfw'
+pkgname=libkrunfw
+version=4.2.0
+revision=1
+archs="x86_64 aarch64"
+build_style=gnu-makefile
+hostmakedepends="curl tar base-devel cpio perl python3-pyelftools"
+short_desc="A library bundling a Linux kernel in a dynamic library in a way that can be easily consumed by libkrun."
+maintainer="Orphaned <orphan@voidlinux.org>"
+license="LGPL-2.1"
+homepage="https://github.com/containers/libkrunfw"
+distfiles="https://github.com/containers/libkrunfw/archive/12236fa4caa42423ff3081b6179aa0a5f37c67c9.zip"
+checksum=1c8e0896eae9ee5e243736ccfbb7fd6ca9a45b9990b9b72545a74258570783c4
+
