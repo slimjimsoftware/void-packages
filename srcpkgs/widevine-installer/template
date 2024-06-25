@@ -1,0 +1,56 @@
+# Template file for 'widevine-installer'
+pkgname=widevine-installer
+version=120.0.6098.0
+revision=1
+archs="aarch64"
+short_desc="Widevine CDM installer - downloads and installs Widevine systemwide for aarch64 systems."
+hostmakedepends="unzip squashfs-tools python3"
+maintainer="Orphaned <orphan@voidlinux.org>"
+license="MIT"
+homepage="https://github.com/AsahiLinux/widevine-installer"
+distfiles="https://github.com/AsahiLinux/widevine-installer/archive/refs/heads/main.zip
+	https://commondatastorage.googleapis.com/chromeos-localmirror/distfiles/chromeos-lacros-arm64-squash-zstd-${version}"
+checksum="88f1d703571ae259a97e7579578985e8e47e79ec66e7cc4c3e1e878ff7b36ce5
+	38a57cc3975af68675a1219b00354f08890ff58d0c54b690dcf5d2dd904b1576"
+nostrip="libwidevinecdm.so"
+repository=nonfree
+
+do_extract() {
+	unzip ${XBPS_SRCDISTDIR}/${pkgname}-${version}/main.zip -d ${wrksrc}
+	unsquashfs -q ${XBPS_SRCDISTDIR}/${pkgname}-${version}/chromeos-lacros-arm64-squash-zstd-${version} 'WidevineCdm/*'
+}
+
+do_build() {
+	python3 widevine-installer-main/widevine_fixup.py squashfs-root/WidevineCdm/_platform_specific/cros_arm64/libwidevinecdm.so libwidevinecdm_fixed.so
+}
+
+do_install() {
+	vinstall libwidevinecdm_fixed.so 755 var/lib/widevine/ libwidevinecdm.so
+	vinstall squashfs-root/WidevineCdm/manifest.json 644 var/lib/widevine/
+	vinstall squashfs-root/WidevineCdm/LICENSE 644 var/lib/widevine/
+
+	vmkdir var/lib/widevine/gmp-widevinecdm/system-installed
+	vmkdir var/lib/widevine/WidevineCdm/_platform_specific/linux_arm64
+	vmkdir var/lib/widevine/WidevineCdm/_platform_specific/linux_x64
+
+ 	vmkdir usr/lib64/chromium-browser/
+	ln -sf /var/lib/widevine/WidevineCdm ${DESTDIR}/usr/lib64/chromium-browser/
+ 	ln -sf /var/lib/widevine/WidevineCdm ${DESTDIR}/var/lib/widevine/WidevineCdm/
+
+	# Hack because Chromium hardcodes a check for this right now...
+	touch ${DESTDIR}/var/lib/widevine/WidevineCdm/_platform_specific/linux_x64/libwidevinecdm.so
+
+	ln -sf ../../manifest.json ${DESTDIR}/var/lib/widevine/gmp-widevinecdm/system-installed/
+	ln -sf ../../libwidevinecdm.so ${DESTDIR}/var/lib/widevine/gmp-widevinecdm/system-installed/
+
+	ln -sf ../manifest.json ${DESTDIR}/var/lib/widevine/WidevineCdm/
+	ln -sf ../../../libwidevinecdm.so ${DESTDIR}/var/lib/widevine/WidevineCdm/_platform_specific/linux_arm64/
+
+	vinstall widevine-installer-main/conf/gmpwidevine.sh 644 etc/profile.d/
+	vinstall widevine-installer-main/conf/gmpwidevine.js 644 usr/lib64/firefox/defaults/pref/
+
+}
+
+post_install() {
+	vlicense squashfs-root/WidevineCdm/LICENSE
+}
