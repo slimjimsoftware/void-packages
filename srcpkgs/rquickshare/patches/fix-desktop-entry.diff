@@ -1,0 +1,12 @@
+--- a/snap/gui/r-quick-share.desktop	2024-05-02 03:02:15.000000000 +1200
++++ b/snap/gui/r-quick-share.desktop	2024-06-16 09:46:11.959492247 +1200
+@@ -1,7 +1,7 @@
+ [Desktop Entry]
+-Categories=Development;
++Categories=Utility;
+ Exec=r-quick-share
+-Icon=${SNAP}/meta/gui/r-quick-share.png
++Icon=r-quick-share.png
+ Name=RQuickShare
+ Terminal=false
+ Type=Application
