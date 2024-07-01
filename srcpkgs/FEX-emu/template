@@ -1,0 +1,38 @@
+# Template file for 'FEX-emu'
+pkgname=FEX-emu
+version=2406
+revision=1
+archs="aarch64"
+build_style="cmake"
+configure_args="-DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_BUILD_TYPE=Release -DUSE_LINKER=lld -DENABLE_LTO=True -DBUILD_TESTS=False -DENABLE_ASSERTIONS=False"
+hostmakedepends="git cmake pkg-config ccache clang lld  llvm17 
+ llvm17-devel SDL2-devel libepoxy-devel openssl-devel nasm
+ python3-setuptools squashfs-tools erofs-utils fuse-erofs"
+makedepends=""
+depends=""
+short_desc="Fast x86 emulation frontend"
+maintainer="SlimJiM <slimjim@slimjimsoftware.co.uk>"
+license="MIT"
+homepage="fex-emu.com"
+
+do_fetch() {
+	if [ ! -d $XBPS_SRCDISTDIR/$pkgname-$version ]; then
+		git clone --recurse-submodules https://github.com/FEX-Emu/FEX.git $XBPS_SRCDISTDIR/$pkgname-$version
+	fi
+}
+
+do_extract() {
+	cp -a "$XBPS_SRCDISTDIR/$pkgname-$version" ${wrksrc}/../
+}
+
+do_configure() {
+        [ ! -d ${cmake_builddir:=build} ] && mkdir -p ${cmake_builddir}
+        cd ${cmake_builddir}
+	CC=clang CXX=clang++ cmake ${configure_args} -G Ninja ..
+}
+
+do_post_install() {
+	vinstall ${FILESDIR}/FEX_x86 644 usr/share/binfmts/
+	vinstall ${FILESDIR}/FEX_x86_64 644 usr/share/binfmts/
+}
+
