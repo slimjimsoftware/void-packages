@@ -4,6 +4,7 @@ version=24.2.0
 revision=1
 _asahiver=20240527
 build_style=meson
+build_helper=qemu
 _llvmver=17
 #Disable LTO flag should be present, see https://gitlab.freedesktop.org/mesa/mesa/-/issues/6911
 configure_args="-Dglvnd=enabled -Dshared-glapi=enabled -Dgbm=enabled -Degl=enabled
@@ -27,7 +28,6 @@ changelog="https://docs.mesa3d.org/relnotes.html"
 distfiles="https://gitlab.freedesktop.org/asahi/mesa/-/archive/asahi-${_asahiver}/mesa-asahi-${_asahiver}.tar.gz"
 checksum=aca4991240f3d25617762d0c8b9644ad05e3b45791bb81f048fc304d44260fe0
 conflicts="mesa"
-nocross="see https://gitlab.freedesktop.org/asahi/mesa/-/issues/41"
 
 build_options="wayland"
 build_options_default="wayland"
