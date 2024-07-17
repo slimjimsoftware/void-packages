@@ -72,6 +72,8 @@ fi
 
 if [ "$XBPS_LIBC" = "glibc" ]; then
 	hostmakedepends+=" prelink"
+	configure_args+=" --enable-archs=i386,x86_64"
+	makedepends+=" cross-i686-w64-mingw32"
 fi
 
 if [ "$XBPS_TARGET_LIBC" = "musl" ]; then
