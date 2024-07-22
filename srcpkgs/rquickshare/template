@@ -1,8 +1,7 @@
 # Template file for 'rquickshare'
 pkgname=rquickshare
-version=0.8.2
+version=0.10.2
 revision=1
-archs="aarch64 x86_64"
 hostmakedepends="cargo pnpm pkg-config sed python3 perl protobuf"
 makedepends="dbus-devel libsoup-devel gdk-pixbuf-devel pango-devel atk-devel gtk+3-devel openssl-devel webkit2gtk-devel"
 depends="gtk+3 libayatana-appindicator webkit2gtk"
@@ -11,7 +10,7 @@ maintainer="Orphaned <orphan@voidlinux.org>"
 license="GPL-3.0-or-later"
 homepage="https://github.com/Martichou/rquickshare/"
 distfiles="https://github.com/Martichou/rquickshare/archive/refs/tags/v${version}.tar.gz"
-checksum=509c9ec615929eca09518dcd57d1d76f6d16f4e1ecb8b80a3ff9350b439bdfba
+checksum=ed3796a0e7fb108a8c0305600ddf1480579c6da686587be02b9762c979090fc4
 
 pre_build() {
 	pushd frontend
