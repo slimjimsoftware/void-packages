@@ -1,0 +1,18 @@
+# Template file for 'libkrun'
+pkgname=libkrun
+version=1.9.1
+revision=1
+build_style=gnu-makefile
+archs="x86_64 aarch64"
+hostmakedepends="libkrunfw cargo glibc-devel patchelf pkg-config alsa-lib-devel
+ libepoxy-devel libdrm-devel virglrenderer-devel pipewire-devel clang libclang17"
+depends="libkrunfw"
+short_desc="A dynamic library that allows programs to easily acquire the ability to run processes
+ in a partially isolated environment using KVM Virtualization."
+maintainer="Orphaned <orphan@voidlinux.org>"
+license="Apache-2.0"
+homepage="https://github.com/containers/libkrun"
+distfiles="https://copr-dist-git.fedorainfracloud.org/repo/pkgs/teohhanhui/asahi-krun/libkrun/libkrun-95b8a18950bd5452dd7e3a36f8dc99fd4d45b714.tar.gz/md5/52f0026de08ff609d4873089b99d7260/libkrun-95b8a18950bd5452dd7e3a36f8dc99fd4d45b714.tar.gz"
+checksum=2cc01d47ac980a1ef707f3a6e87d2074d6592f174e01c7d48da3c4a87bf24823
+
+
