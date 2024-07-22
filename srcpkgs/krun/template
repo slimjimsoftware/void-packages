@@ -1,0 +1,19 @@
+# Template file for 'krun'
+pkgname=krun
+version=0.1.0
+revision=1
+build_style=cargo
+hostmakedepends="libkrun clang libclang17 llvm17-devel"
+depends="libkrun passt"
+short_desc="Run programs from your system in a microVM"
+maintainer="Orphaned <orphan@voidlinux.org>"
+license="Apache-2.0"
+homepage="https://github.com/slp/krun"
+distfiles="https://github.com/slp/krun/archive/refs/heads/main.zip"
+checksum=5c48f91573e4645dbe525363dca9d68eae08cb35f5a54af94a9db1c3ae868ed2
+
+do_install() {
+	vbin target/${XBPS_RUST_TARGET}/release/krun
+	vbin target/${XBPS_RUST_TARGET}/release/krun-guest
+	vbin target/${XBPS_RUST_TARGET}/release/krun-server
+}
