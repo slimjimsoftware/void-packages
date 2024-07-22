@@ -4527,3 +4527,6 @@ libopenrazer.so.0 libopenrazer-0.2.0_1
 libstaroffice-0.0.so.0 libstaroffice-0.0.7_1
 libbox2d.so.2 box2d-2.4.1_1
 libhwy.so.1 highway-1.2.0_1
+libkrunfw.so.4 libkrunfw-4.1.0_1
+libkrun.so.1 libkrun-1.9.2_1
+
