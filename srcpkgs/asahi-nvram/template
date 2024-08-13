@@ -1,0 +1,19 @@
+# Template file for 'asahi-nvram'
+pkgname=asahi-nvram
+version=0.0.1
+revision=1
+build_style=cargo
+short_desc="Nvram reader/writer for arm macs. May or may not result in you having to perform a dfu restore"
+maintainer="Orphaned <orphan@voidlinux.org>"
+license="MIT"
+homepage="https://github.com/WhatAmISupposedToPutHere/asahi-nvram/"
+distfiles="https://github.com/WhatAmISupposedToPutHere/asahi-nvram/archive/refs/heads/master.zip"
+checksum=2b1a9fc8ea07383e3e6fda656ce2f734c488ac7a9d7e9b375226ff1b30cc81ea
+
+do_install() {
+	vbin target/$XBPS_RUST_TARGET/release/asahi-bless 
+	vbin target/$XBPS_RUST_TARGET/release/asahi-btsync 
+	vbin target/$XBPS_RUST_TARGET/release/asahi-nvram 
+	vbin target/$XBPS_RUST_TARGET/release/asahi-wifisync
+	vlicense LICENSE
+}
