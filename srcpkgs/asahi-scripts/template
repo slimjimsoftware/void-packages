@@ -1,6 +1,6 @@
 # Template file for 'asahi-scripts'
 pkgname=asahi-scripts
-version=20240429
+version=20240623
 revision=1
 archs="aarch64*"
 build_style=gnu-makefile
@@ -11,7 +11,7 @@ maintainer="dkwo <npiazza@disroot.org>"
 license="MIT"
 homepage="https://github.com/AsahiLinux/asahi-scripts"
 distfiles="https://github.com/AsahiLinux/asahi-scripts/archive/refs/tags/${version}.tar.gz"
-checksum=5bcf1812201bc566cd44ecd853a61ce01a1d100bbd0163a63f468bb6dfc99b0a
+checksum=1431149b3bfd91468fe41d7e05062d8d5d0ce40edeab2b2e9983feee1af4570d
 make_dirs="/usr/lib/firmware/vendor 0755 root root"
 
 post_install() {
