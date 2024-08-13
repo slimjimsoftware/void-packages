@@ -1,11 +1,11 @@
 # Template file for 'linux-asahi'
 pkgname=linux-asahi
-_asahiver=6.8.11
-_asahirel=1
+_asahiver=6.9.9
+_asahirel=7
 _tag=asahi-${_asahiver}-${_asahirel}
-version=6.8.11
+version=6.9.9
 revision=1
-_upstreamver=6.8.11
+_upstreamver=6.9.9
 _kernver="${_upstreamver}-${_tag}_${revision}"
 archs="aarch64*"
 hostmakedepends="tar xz bc elfutils-devel flex gmp-devel kmod libmpc-devel
@@ -16,7 +16,7 @@ maintainer="Will Springer <skirmisher@protonmail.com>, dkwo <npiazza@disroot.org
 license="GPL-2.0-only"
 homepage="https://asahilinux.org"
 distfiles="https://github.com/AsahiLinux/linux/archive/${_tag}.tar.gz"
-checksum=05bedffb48f1c6959661702b8d700b24c411e1c6535babb71ae006c38295b461
+checksum=05aeb8e757773cef8070aede4976ed19a4b1197b10777d1050a35e395226653e
 python_version=3
 nodebug=yes  # -dbg package is generated below manually
 nostrip=yes
