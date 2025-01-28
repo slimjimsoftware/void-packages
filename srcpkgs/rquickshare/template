@@ -2,48 +2,19 @@
 pkgname=rquickshare
 version=0.11.4
 revision=1
-hostmakedepends="cargo pnpm pkg-config sed python3 perl protobuf"
-makedepends="dbus-devel libsoup3-devel gdk-pixbuf-devel pango-devel atk-devel gtk+3-devel openssl-devel libwebkit2gtk41-devel"
-depends="gtk+3 libayatana-appindicator libwebkit2gtk41"
+archs="x86_64"
+build_style=fetch
 short_desc="Rust / Tauri implementaion of for Android QuickShare"
+makedepends="tar gzip"
 maintainer="Orphaned <orphan@voidlinux.org>"
 license="GPL-3.0-or-later"
 homepage="https://github.com/Martichou/rquickshare/"
-distfiles="https://github.com/Martichou/rquickshare/archive/refs/tags/v${version}.tar.gz"
-checksum=fcd4a4fe4080bfbf21cbaac4b9fc4eca07cb0cf7e6cd08daf06a81cabc5a0e57
-
-pre_build() {
-	pushd app/main
-	pnpm i
-	popd
-
-	pushd core_lib
-	cargo fetch --target ${XBPS_TARGET_MACHINE%-*}-unknown-linux-gnu
-	popd
-
-}
-
-do_build() {
-	pushd app/main
-	CFLAGS+=" -ffat-lto-objects" pnpm build
-	popd
-}
+depends="gtk+3 libayatana-appindicator libwebkit2gtk41"
+checksum=18857f8b1532fe594da5e367a191804034547b443fc9c46a809450b40bb9ae16
+_deb="r-quick-share-main_v0.11.4_glibc-2.39_amd64.deb"
+distfiles="https://github.com/Martichou/rquickshare/releases/download/v0.11.4/${_deb}"
 
 do_install() {
-	vbin app/main/src-tauri/target/release/r-quick-share
-
-	for i in 32x32 128x128 128x128@2x; do
- 		vinstall frontend/src-tauri/icons/${i}.png 644 usr/share/icons/hicolor/${i}/apps r-quick-share.png
-	done
-
- 	vinstall app/main/src-tauri/icons/icon.png 644 usr/share/icons/hicolor/512x512/apps r-quick-share.png
-	local arch=${XBPS_TARGET_MACHINE%-*}
-	local _arch="amd64"
-	case "${arch}" in
-		aarch64) _arch="arm64";;
-		x86_64) _arch="amd64";;
-	esac
-
-	vinstall snap/gui/r-quick-share.desktop 644 usr/share/applications r-quick-share.desktop
-	vlicense LICENSE
+	ar p "${_deb}" data.tar.gz > data.tar.gz
+	tar -C "${DESTDIR}" -xvf data.tar.gz
 }
