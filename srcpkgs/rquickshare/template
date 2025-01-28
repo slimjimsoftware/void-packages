@@ -1,19 +1,19 @@
 # Template file for 'rquickshare'
 pkgname=rquickshare
-version=0.10.2
+version=0.11.4
 revision=1
 hostmakedepends="cargo pnpm pkg-config sed python3 perl protobuf"
-makedepends="dbus-devel libsoup-devel gdk-pixbuf-devel pango-devel atk-devel gtk+3-devel openssl-devel webkit2gtk-devel"
-depends="gtk+3 libayatana-appindicator webkit2gtk"
+makedepends="dbus-devel libsoup3-devel gdk-pixbuf-devel pango-devel atk-devel gtk+3-devel openssl-devel libwebkit2gtk41-devel"
+depends="gtk+3 libayatana-appindicator libwebkit2gtk41"
 short_desc="Rust / Tauri implementaion of for Android QuickShare"
 maintainer="Orphaned <orphan@voidlinux.org>"
 license="GPL-3.0-or-later"
 homepage="https://github.com/Martichou/rquickshare/"
 distfiles="https://github.com/Martichou/rquickshare/archive/refs/tags/v${version}.tar.gz"
-checksum=ed3796a0e7fb108a8c0305600ddf1480579c6da686587be02b9762c979090fc4
+checksum=fcd4a4fe4080bfbf21cbaac4b9fc4eca07cb0cf7e6cd08daf06a81cabc5a0e57
 
 pre_build() {
-	pushd frontend
+	pushd app/main
 	pnpm i
 	popd
 
@@ -24,19 +24,19 @@ pre_build() {
 }
 
 do_build() {
-	pushd frontend
+	pushd app/main
 	CFLAGS+=" -ffat-lto-objects" pnpm build
 	popd
 }
 
 do_install() {
-	vbin frontend/src-tauri/target/release/r-quick-share
+	vbin app/main/src-tauri/target/release/r-quick-share
 
 	for i in 32x32 128x128 128x128@2x; do
  		vinstall frontend/src-tauri/icons/${i}.png 644 usr/share/icons/hicolor/${i}/apps r-quick-share.png
 	done
 
- 	vinstall frontend/src-tauri/icons/icon.png 644 usr/share/icons/hicolor/512x512/apps r-quick-share.png
+ 	vinstall app/main/src-tauri/icons/icon.png 644 usr/share/icons/hicolor/512x512/apps r-quick-share.png
 	local arch=${XBPS_TARGET_MACHINE%-*}
 	local _arch="amd64"
 	case "${arch}" in
