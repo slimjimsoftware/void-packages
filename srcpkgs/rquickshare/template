@@ -1,6 +1,6 @@
 # Template file for 'rquickshare'
 pkgname=rquickshare
-version=0.11.4
+version=0.11.5
 revision=1
 archs="x86_64"
 build_style=fetch
