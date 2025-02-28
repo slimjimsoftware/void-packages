@@ -1,6 +1,6 @@
 # Template file for 'nordvpn-bin'
 pkgname=nordvpn-bin
-version=3.18.1
+version=3.20.0
 revision=1
 archs="x86_64 aarch64"
 build_style=fetch
@@ -16,8 +16,8 @@ repository=nonfree
 case "$XBPS_TARGET_MACHINE" in
 	x86_64)
 		_deb="nordvpn_${version//v/-}_amd64.deb"
-		distfiles="https://repo.nordvpn.com/deb/nordvpn/debian/pool/main/nordvpn_${version//v/-}_amd64.deb"
-		checksum=107b634d4147ba498313f8f1a64f01a914a521a755d63cffd43bc31bcc1164fd
+		distfiles="https://repo.nordvpn.com/deb/nordvpn/debian/pool/main/n/nordvpn/nordvpn_${version//v/-}_amd64.deb"
+		checksum=dff1d20933edff50a9aeba550fad066b4d8dcfebc1c0d044d4b125fbbcfb003b
 		;;
 	aarch64)
 		_deb="nordvpn_${version//v/-}_arm64.deb"
@@ -32,6 +32,10 @@ do_install() {
 	tar -C "${DESTDIR}" -xvf data.tar.gz
 
 	vbin "${DESTDIR}/usr/sbin/nordvpnd"
+
+	install -d "${DESTDIR}/etc/ld.so.conf.d"
+	echo "/usr/lib/nordvpn" > "${DESTDIR}/etc/ld.so.conf.d/nordvpn.conf"
+	chmod 644 "${DESTDIR}/etc/ld.so.conf.d/nordvpn.conf"
 
 	rm -r "${DESTDIR}/usr/sbin"
 	rm -r "${DESTDIR}/usr/lib/systemd/"
