@@ -10,9 +10,9 @@ maintainer="Orphaned <orphan@voidlinux.org>"
 license="GPL-3.0-or-later"
 homepage="https://github.com/Martichou/rquickshare/"
 depends="gtk+3 libayatana-appindicator libwebkit2gtk41"
-checksum=18857f8b1532fe594da5e367a191804034547b443fc9c46a809450b40bb9ae16
-_deb="r-quick-share-main_v0.11.4_glibc-2.39_amd64.deb"
-distfiles="https://github.com/Martichou/rquickshare/releases/download/v0.11.4/${_deb}"
+checksum=49085e77e351bcadcb0aff7707d371435ec1cd5a409a1e146e2cf824f48ff189
+_deb="r-quick-share-main_v${version}_glibc-2.39_amd64.deb"
+distfiles="https://github.com/Martichou/rquickshare/releases/download/v${version}/${_deb}"
 
 do_install() {
 	ar p "${_deb}" data.tar.gz > data.tar.gz
