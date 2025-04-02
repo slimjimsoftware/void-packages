@@ -22,7 +22,7 @@ case "$XBPS_TARGET_MACHINE" in
 	aarch64)
 		_deb="nordvpn_${version//v/-}_arm64.deb"
 		distfiles="https://repo.nordvpn.com/deb/nordvpn/debian/pool/main/n/nordvpn/nordvpn_${version//v/-}_arm64.deb"
-		checksum=5144c8db3a0d152c5d723e3e557a0d31e0ed346ec3cec734cb01170918323a83
+		checksum=5b7ef29f273faabae65a4dc00f51bf3004507e7fd9184678562a33c56acccc49
 		;;
 esac
 
