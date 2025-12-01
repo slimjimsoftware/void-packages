@@ -1,6 +1,6 @@
 # Template file for 'nordvpn-bin'
 pkgname=nordvpn-bin
-version=4.2.2
+version=4.2.3
 revision=1
 archs="x86_64 aarch64"
 build_style=fetch
@@ -18,12 +18,12 @@ case "$XBPS_TARGET_MACHINE" in
 	x86_64)
 		_deb="nordvpn_${version//v/-}_amd64.deb"
 		distfiles="https://repo.nordvpn.com/deb/nordvpn/debian/pool/main/n/nordvpn/nordvpn_${version//v/-}_amd64.deb"
-		checksum=d51b5759807e5ff7d12e849d054387767602c334afce3f92dc6fb2a7e9c2664b
+		checksum=2dc4d012a68fd7e51e0718be82a400b9028acd583331649beeb30407aa9cea19
 		;;
 	aarch64)
 		_deb="nordvpn_${version//v/-}_arm64.deb"
 		distfiles="https://repo.nordvpn.com/deb/nordvpn/debian/pool/main/n/nordvpn/nordvpn_${version//v/-}_arm64.deb"
-		checksum=9a90301792c631b5e3ce259629ed3bd8a14719bfbdb2061b16aec12be0aa5943
+		checksum=3fba3ba7b903c8bbe360472ac22071810807d0a01654e17f24d0822fc2471fe3
 		;;
 esac
 
