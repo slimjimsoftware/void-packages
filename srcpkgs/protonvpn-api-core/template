@@ -1,0 +1,19 @@
+# Template file for 'protonvpn-api-core'
+pkgname=protonvpn-api-core
+version=4.14.1
+revision=1
+build_style=python3-module
+depends="python3 python3-Jinja2 python3-cairo python3-cryptography python3-distro python3-fido2 python3-gobject python3-packaging python3-pynacl python3-sentry proton-core proton-vpn-local-agent"
+makedepends="python3-setuptools"
+short_desc="ProtonVPN API Core"
+maintainer="Orphaned <orphan@voidlinux.org>"
+license="GPL-3.0-or-later"
+homepage="https://protonvpn.com"
+distfiles="https://github.com/ProtonVPN/python-proton-vpn-api-core/archive/refs/tags/v${version}.tar.gz"
+checksum=3680e4dd66feb6c09c05525858d145c3571c9febcbc4c5f3f69e9c3eca80ebc0
+
+post_install() {
+	vlicense LICENSE
+}
+
+
