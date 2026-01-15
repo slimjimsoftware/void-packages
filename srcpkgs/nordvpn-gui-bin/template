@@ -1,6 +1,6 @@
 # Template file for 'nordvpn-gui-bin'
 pkgname=nordvpn-gui-bin
-version=4.2.3
+version=4.3.1
 revision=1
 archs="x86_64 aarch64"
 build_style=fetch
@@ -19,12 +19,12 @@ case "$XBPS_TARGET_MACHINE" in
 	x86_64)
 		_deb="nordvpn-gui_${version//v/-}_amd64.deb"
 		distfiles="https://repo.nordvpn.com/deb/nordvpn/debian/pool/main/n/nordvpn-gui/nordvpn-gui_${version//v/-}_amd64.deb"
-		checksum=7743561747e4d242026c41ca952a33af00f37122b24701e22a8c078dcb8c3d5a
+		checksum=24faec515e1caae6e15f1512181c96433ec74187ad998712fbc67107dd543be4
 		;;
 	aarch64)
 		_deb="nordvpn_${version//v/-}_arm64.deb"
 		distfiles="https://repo.nordvpn.com/deb/nordvpn/debian/pool/main/n/nordvpn-gui/nordvpn-gui_${version//v/-}_arm64.deb"
-		checksum=a2065cb9ded0749685e4c2afd74d8797e8948193315ea272cbf3c0f28d8a4093
+		checksum=91c3258b2132e2e920e2bc31a5da73625a01cb394d2b151b4b70b3e65aee1f2a
 		;;
 esac
 
