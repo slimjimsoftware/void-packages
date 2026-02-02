@@ -1,6 +1,6 @@
 # Template file for 'distrobox'
 pkgname=distrobox
-version=1.7.2.1
+version=1.8.2.3
 revision=1
 short_desc="Use any linux distribution inside your terminal"
 depends="podman"
@@ -8,7 +8,7 @@ maintainer="Orphaned <orphan@voidlinux.org>"
 homepage="https://distrobox.it"
 license="GPL-3.0-or-later"
 distfiles="https://github.com/89luca89/distrobox/archive/refs/tags/${version}.tar.gz"
-checksum=ff2cca0c6334fff6ed577d23f68a6746ad4009f42d8a45eef5ca3850c895a4bb
+checksum=b4fcc60c0b856aac93385ea0eb88fb27fdaeb00b365c75e0eed497c306069837
 
 do_install() {
 	vbin distrobox
