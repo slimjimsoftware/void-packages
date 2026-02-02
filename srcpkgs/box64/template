@@ -1,6 +1,6 @@
 # Template file for 'box64'
 pkgname=box64
-version=0.3.0
+version=0.4.0
 revision=1
 build_style=cmake
 hostmakedepends="python3 perl"
@@ -10,7 +10,7 @@ maintainer="Orphaned <orphan@voidlinux.org>"
 license="MIT"
 homepage="https://box86.org"
 distfiles="https://github.com/ptitSeb/box64/archive/v${version}.tar.gz"
-checksum=e334e793638f375a28829c01b089c6ba27d8c3f6094fcbc9360b56ad9c09d0b5
+checksum=4504b0df2d9ccfcf15b4d0c80664e216dc1170a4f8caeca46e79b93ff47e5e87
 conf_files="/etc/box64.box64rc"
 triggers="binfmts"
 nopie=yes
