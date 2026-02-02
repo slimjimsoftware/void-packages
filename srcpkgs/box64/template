@@ -1,6 +1,7 @@
 # Template file for 'box64'
 pkgname=box64
 version=0.4.0
+archs="aarch64 riscv64"
 revision=1
 build_style=cmake
 hostmakedepends="python3 perl"
@@ -18,8 +19,6 @@ nopie=yes
 case "$XBPS_TARGET_MACHINE" in
 	aarch64) configure_args+=" -DM1=1 -DARM_DYNAREC=1"	;;
 	riscv64) configure_args+=" -DRV64=1"			;;
-	x86_64)	 configure_args+=" -DLD80BITS=1 -DNOALIGN=1"	;;
-	*)	 broken="platform not supported"		;;
 esac
 
 
