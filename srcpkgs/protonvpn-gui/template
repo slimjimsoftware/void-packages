@@ -13,6 +13,8 @@ distfiles="https://github.com/ProtonVPN/proton-vpn-gtk-app/archive/refs/tags/v${
 checksum=540d517a4114ef24a45d86f7787ced833a0f1db659869c118376e073528419eb
 
 post_install() {
+  vinstall ${FILESDIR}/protonvpn.png 644 usr/share/icons/hicolor/128x128/apps/
+  vinstall ${FILESDIR}/proton.vpn.app.gtk.desktop 644 usr/share/applications
 	vlicense LICENSE
 }
 
