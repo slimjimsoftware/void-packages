@@ -1,0 +1,2 @@
+site=https://github.com/89luca89/distrobox/tags
+pattern="\K[\d.]+(?=\.tar\.gz)"
