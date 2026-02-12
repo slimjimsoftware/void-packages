@@ -1,0 +1,8 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Proton VPN
+Comment=GUI for Proton VPN
+Categories=Network;
+Icon=protonvpn.png
+Exec=protonvpn-app
