@@ -1,0 +1,35 @@
+# Template file for 'box64'
+pkgname=box64
+version=0.4.0
+archs="aarch64 riscv64"
+revision=1
+build_style=cmake
+hostmakedepends="python3 perl"
+configure_args="-DNOGIT=1 -DNO_LIB_INSTALL=1"
+short_desc="Linux Userspace x86_64 Emulator with a twist"
+maintainer="Orphaned <orphan@voidlinux.org>"
+license="MIT"
+homepage="https://box86.org"
+distfiles="https://github.com/ptitSeb/box64/archive/v${version}.tar.gz"
+checksum=4504b0df2d9ccfcf15b4d0c80664e216dc1170a4f8caeca46e79b93ff47e5e87
+conf_files="/etc/box64.box64rc"
+triggers="binfmts"
+nopie=yes
+
+case "$XBPS_TARGET_MACHINE" in
+	aarch64) configure_args+=" -DM1=1 -DARM_DYNAREC=1"	;;
+	riscv64) configure_args+=" -DRV64=1"			;;
+esac
+
+
+
+do_install() {
+ 	vbin build/box64
+ 	vdoc docs/USAGE.md
+ 	vdoc docs/X64WINE.md
+ 	vconf system/box64.box64rc
+ 	pod2man --center "Manual" --release "box64 ${version}" docs/box64.pod > box64.1
+ 	vman box64.1
+	vinstall ${FILESDIR}/box64-binfmt.conf 644 usr/share/binfmts/ box64 
+ 	vlicense LICENSE
+}

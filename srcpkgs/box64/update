@@ -1,0 +1,2 @@
+site=https://github.com/ptitSeb/box64/tags
+pattern="/archive/refs/tags/v\K[\d.]+(?=\.tar\.gz)"
