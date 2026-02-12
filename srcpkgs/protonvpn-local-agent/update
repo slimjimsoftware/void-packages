@@ -1,0 +1,2 @@
+site=https://raw.githubusercontent.com/ProtonVPN/local-agent-rs/refs/heads/stable/python-proton-vpn-local-agent/versions.yml
+pattern="^version: \K.*"
