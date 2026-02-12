@@ -1,0 +1,33 @@
+# Template file for 'bricklink-studio'
+pkgname=bricklink-studio
+_pkgname="Studio+2.0.exe"
+version=2.25.2
+revision=1
+archs="x86_64"
+build_style=fetch
+short_desc="Lego CAD software created by Bricklink - Windows version running on WINE"
+maintainer="Orphaned <orphan@voidlinux.org>"
+license="custom"
+depends="wine"
+nostrip=yes                 # skip 06-strip-and-debug-pkgs
+ignore_elf_dirs=/usr/share  # skip 11-pkglint-elf-in-usrshare
+hostmakedepends="innoextract"
+homepage="https://www.bricklink.com/v3/studio/download.page"
+checksum=02273d62c9b89c727f40c9625b724e3d33670a945ecac3e9197601f01fe9974a
+distfiles="https://studio.download.bricklink.info/Studio2.0/${_pkgname}"
+
+pre_install() {
+  innoextract -d . $_pkgname
+}
+
+do_install() {
+  mkdir -p ${DESTDIR}/usr/share/${pkgname}
+	cp -r app/* ${DESTDIR}/usr/share/${pkgname}
+
+#  vinstall app/* 755 usr/share/${pkgname}/ ${_pkgname}
+  vinstall ${FILESDIR}/$pkgname.desktop 644 usr/share/applications/ $pkgname.desktop
+  vinstall ${FILESDIR}/$pkgname.sh 755 usr/bin/ $pkgname
+  vinstall ${FILESDIR}/$pkgname.xml 644 usr/share/applications/ $pkgname.xml
+  vinstall ${FILESDIR}/icon.png 644 usr/share/icons/hicolor/256x256/apps/ $pkgname.png
+  vinstall ${FILESDIR}/icon.png 644 usr/share/icons/hicolor/256x256/apps/ application-bricklink-studio-model.png
+}
