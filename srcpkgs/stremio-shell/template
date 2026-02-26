@@ -1,7 +1,7 @@
 # Template file for 'stremio-shell'
 pkgname=stremio-shell
-version=4.4.168
-revision=2
+version=4.4.175
+revision=1
 _singleapplication_hash=e22a6bc235281152b0041ce39d4827b961b66ea6
 _libmpv_hash=822a41a1087daf2911fc336fbd9509f962158fef
 create_wrksrc=yes
@@ -21,7 +21,7 @@ distfiles="https://github.com/Stremio/stremio-shell/archive/v${version}.tar.gz
  https://raw.githubusercontent.com/mpv-player/mpv/v0.32.0/libmpv/qthelper.hpp
  https://dl.strem.io/four/v${version}/server.js
  https://dl.strem.io/four/v${version}/stremio.asar"
-checksum="764a181cc61189f0a7cff631dbc7398faf12eef33beeefb149ce5c504ab99998
+checksum="1cea21e3981b10a0777f78aedac719b888df561c408b05129a17c24f44432376
  ce2849e11977101c0102aff734adeea7ebd8c63e0f0ab86f8908a99b7cb69f1e
  86e1fcba6001829b7e23a856db84d01ebc76e63528f74064d7bc5705015a2684
  683de7890a60ab512264b69c9c41609aa515f9b738aef18df4803ef53e17175d
@@ -46,7 +46,7 @@ post_install() {
 
 	# Move .desktop file to proper location
 	vmkdir usr/share/applications
-	mv "${DESTDIR}/usr/opt/stremio/smartcode-stremio.desktop" "${DESTDIR}/usr/share/applications"
+	mv "${DESTDIR}/usr/opt/stremio/smartcode-stremio.desktop" "${DESTDIR}/usr/share/applications/com.stremio.stremio.desktop"
 
 	# Link executable in PATH
 	vmkdir usr/bin
