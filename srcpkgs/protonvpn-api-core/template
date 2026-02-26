@@ -10,7 +10,7 @@ maintainer="Orphaned <orphan@voidlinux.org>"
 license="GPL-3.0-or-later"
 homepage="https://protonvpn.com"
 distfiles="https://github.com/ProtonVPN/python-proton-vpn-api-core/archive/refs/tags/v${version}.tar.gz"
-checksum=632231985666633f05cbf0692a098fbe79bccce0ed51dbb6bebaf9365c446d66
+checksum=a2bfde944456dde3f2535bc860f836ae582280173c8ba8cd518a860586d4955e
 
 post_install() {
 	vlicense LICENSE
