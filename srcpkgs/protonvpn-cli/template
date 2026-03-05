@@ -2,7 +2,7 @@
 pkgname=protonvpn-cli
 version=0.1.6
 revision=1
-depends="python3-click python3-dbus-fast protonvpn-core protonvpn-api-core protonvpn-local-agent"
+depends="python3-click python3-dbus-fast python3-tabulate protonvpn-core protonvpn-api-core protonvpn-local-agent"
 makedepends="python3-setuptools"
 build_style=python3-module
 short_desc="ProtonVPN CLI"
