@@ -1,6 +1,6 @@
 # Template file for 'protonvpn-api-core'
 pkgname=protonvpn-api-core
-version=4.15.2
+version=4.16.0
 revision=1
 build_style=python3-module
 depends="python3 python3-Jinja2 python3-cairo python3-cryptography python3-distro python3-fido2 python3-gobject python3-packaging python3-pynacl python3-sentry protonvpn-core protonvpn-local-agent"
@@ -10,7 +10,7 @@ maintainer="Orphaned <orphan@voidlinux.org>"
 license="GPL-3.0-or-later"
 homepage="https://protonvpn.com"
 distfiles="https://github.com/ProtonVPN/python-proton-vpn-api-core/archive/refs/tags/v${version}.tar.gz"
-checksum=f208701370b908a29a990c66de13afcec770457edff7b00770c480f59fb09f99
+checksum=2316987c0fa6e8c67cb3d78c1828d464b644bce5b8f2c564bf9447993f035a78
 
 post_install() {
 	vlicense LICENSE
