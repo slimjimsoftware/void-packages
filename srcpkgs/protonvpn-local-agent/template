@@ -1,6 +1,6 @@
 # Template file for 'protonvpn-local-agent' package
 pkgname=protonvpn-local-agent
-version=1.6.0
+version=1.6.1
 revision=3
 archs="x86_64*"
 depends="python"
@@ -12,7 +12,7 @@ maintainer="Orphaned <orphan@voidlinux.org>"
 license="GPL-3.0-or-later"
 homepage="https://protonvpn.com"
 distfiles="https://github.com/ProtonVPN/local-agent-rs/archive/refs/tags/${version}.tar.gz"
-checksum=52b62ee267ef09d004f6bbfd10ad7ce28a5c32136200b4492c7e681be18d1676
+checksum=9ef0cc43919bab86b94e1e3a77ad7572e9a82885265635d898b817d8382917f2
 
 pre_build() {
     cd "${wrksrc}/python-proton-vpn-local-agent"
