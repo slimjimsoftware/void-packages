@@ -1,6 +1,6 @@
 # Template file for 'protonvpn-gui'
 pkgname=protonvpn-gui
-version=4.15.1
+version=4.15.2
 revision=1
 build_style=python3-module
 depends="python3 python3-cairo python3-dbus python3-distro python3-gobject python3-packaging python3-requests protonvpn-api-core protonvpn-core"
@@ -10,7 +10,7 @@ maintainer="Orphaned <orphan@voidlinux.org>"
 license="GPL-3.0-or-later"
 homepage="https://protonvpn.com"
 distfiles="https://github.com/ProtonVPN/proton-vpn-gtk-app/archive/refs/tags/v${version}.tar.gz"
-checksum=b6f50486e593846810ba385ff298f5c0fec66c6d278db110b345e9e206d1b6e7
+checksum=41eb186c39a12418d01c91afec5e969da047f804f6071cb9cae3f841c6adf666
 
 post_install() {
   vinstall ${FILESDIR}/protonvpn.png 644 usr/share/icons/hicolor/128x128/apps/
