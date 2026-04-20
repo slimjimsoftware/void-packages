@@ -1,6 +1,6 @@
 # Template file for 'protonvpn-cli' package
 pkgname=protonvpn-cli
-version=1.0.0
+version=1.0.1
 revision=1
 depends="python3-click python3-dbus-fast python3-tabulate protonvpn-core protonvpn-api-core protonvpn-local-agent"
 makedepends="python3-setuptools"
@@ -10,7 +10,7 @@ maintainer="Orphaned <orphan@voidlinux.org>"
 license="GPL-3.0-or-later"
 homepage="https://protonvpn.com"
 distfiles="https://github.com/ProtonVPN/proton-vpn-cli/archive/refs/tags/v${version}.tar.gz"
-checksum=70d239dbe0a31895fcd94f3cf171557806de973f6ab3a8d6f829ee5c70b7466a
+checksum=704742c428b7f7638ba9afb223bcd6e9f6b00fd2f6d63f361e8b2092423f4b8e
 
 post_install() {
 	vlicense LICENSE
